@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sentiment Analyzer</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("/static/Sentiment-Analyzer.jpg");
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            width: 400px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-radius: 12px;
+            background-color: rgb(159, 129, 213);
+            box-shadow: 0 8px 20px rgba(84, 67, 71, 0.15);
+        }
+        
+        h2 {
+            text-align: center;
+            color: #030010;
+            font-size: 30px;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            resize: none;
+            font-size: 15px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #624c8b;
+            color: #0f151a;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: rgb(74, 54, 165);
+        }
+        
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #160c07;
+            font-size: 18px;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border: 2px solid #0d0c0d;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>🎬 Sentiment Analyzer</h2>
+
+        <textarea id="review" placeholder="Enter your movie review here"></textarea>
+
+        <button onclick="analyze()">Analyze Sentiment</button>
+
+        <h3 id="result"></h3>
+
+    </div>
+
+    <script>
+        async function analyze() {
+
+            let text = document.getElementById("review").value
+
+            if (text.length == 0) {
+                document.getElementById("result").innerHTML = "Please enter a review"
+                return
+            }
+
+            const response = await fetch("/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    review: text
+                })
+            })
+
+            const result = await response.json()
+
+            document.getElementById("result").innerHTML =
+                "Sentiment: " + result
+
+        }
+    </script>
+
+</body>
+
+</html>
