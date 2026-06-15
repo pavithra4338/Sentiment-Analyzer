@@ -1,6 +1,7 @@
-numpy
-pandas
+flask
+gunicorn
 scikit-learn
 nltk
+pandas
+numpy
 datasets
-flask

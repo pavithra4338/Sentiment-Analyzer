@@ -1,4 +1,79 @@
 <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review Sentiment Analyzer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+
+        <h1>🎬 Movie Review Sentiment Analyzer</h1>
+
+        <p class="subtitle">
+            Discover what people feel about movies using Machine Learning
+        </p>
+
+        <textarea
+            id="review"
+            placeholder="Enter your movie review here..."></textarea>
+
+        <button onclick="analyze()">
+            Analyze Sentiment
+        </button>
+
+        <div id="result"></div>
+
+        <footer>
+            Powered by Flask • Naive Bayes • IMDB Dataset
+        </footer>
+
+    </div>
+
+    <script>
+        async function analyze() {
+
+            let text = document.getElementById("review").value.trim();
+
+            if (text.length === 0) {
+                document.getElementById("result").innerHTML =
+                    '<span class="negative">⚠ Please enter a review</span>';
+                return;
+            }
+
+            const response = await fetch("/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    review: text
+                })
+            });
+
+            const result = await response.json();
+
+            if (result.includes("Positive")) {
+                document.getElementById("result").innerHTML =
+                    '<span class="positive">✅ Positive Review</span>';
+            } else {
+                document.getElementById("result").innerHTML =
+                    '<span class="negative">❌ Negative Review</span>';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -121,4 +196,4 @@
 
 </body>
 
-</html>
+</html> -->
