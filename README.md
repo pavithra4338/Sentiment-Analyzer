@@ -1,26 +1,71 @@
-# Sentiment Analyzer
+# 🎬 Movie Review Sentiment Analyzer
 
-This project analyzes movie reviews and classifies them as Positive or Negative using Machine Learning.
- 
- # Technologies Used
-- Python
-- Scikit-learn
-- NLTK
-- Pandas
-- HTML/CSS
+A Machine Learning web application that analyzes movie reviews and predicts whether the sentiment is **Positive** or **Negative** using Natural Language Processing (NLP) techniques.
 
-# Dataset
-IMDB Movie Reviews Dataset
+## 🚀 Features
 
-# Model
-Naive Bayes Classifier
+* Predicts whether a movie review is Positive or Negative
+* Text preprocessing using NLTK
+* Feature extraction using CountVectorizer
+* Sentiment classification using Multinomial Naive Bayes
+* Interactive web interface using Flask
+* Real-time sentiment prediction
 
-# Features
-- Text preprocessing using NLTK
-- Feature extraction using CountVectorizer
-- Sentiment prediction
-- Simple web interface for user input
+## 🛠 Technologies Used
 
-# Sentiment-Analyzer
-A Machine Learning project that analyzes movie reviews and predicts whether the sentiment is positive or negative using NLP techniques.
+* Python
+* Flask
+* Scikit-learn
+* NLTK
+* Pandas
+* NumPy
+* HTML
+* CSS
+* JavaScript
 
+## 📂 Dataset
+
+**IMDB Movie Reviews Dataset**
+
+Source: Hugging Face Datasets
+
+## 🤖 Machine Learning Model
+
+**Multinomial Naive Bayes Classifier**
+
+### Workflow
+
+1. Load the IMDB dataset.
+2. Preprocess the reviews.
+3. Remove stopwords and apply stemming.
+4. Convert text using CountVectorizer.
+5. Train the Naive Bayes model.
+6. Save the trained model using Pickle.
+7. Integrate the model with Flask.
+
+## ▶️ How to Run
+
+```bash
+git clone https://github.com/pavithra4338/Sentiment-Analyzer.git
+cd Sentiment-Analyzer
+pip install -r requirements.txt
+python app.py
+```
+
+Then open:
+
+```
+http://127.0.0.1:5000
+```
+
+## 🌐 Deployment
+
+Deployment Platform: Render
+
+Live Demo: Add your Render deployment link here after deployment.
+
+## 👩‍💻 Author
+
+**Pavithra Veesam**
+
+GitHub: https://github.com/pavithra4338
