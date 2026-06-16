@@ -58,11 +58,13 @@ Then open:
 http://127.0.0.1:5000
 ```
 
-## 🌐 Deployment
+## 🌐 Live Demo
 
-Deployment Platform: Render
+Try the deployed application here:
 
-Live Demo: Add your Render deployment link here after deployment.
+https://sentiment-analyzer-f5abnfzqfxy9jfacspzmjc.streamlit.app/
+
+Deployment Platform: Streamlit Community Cloud
 
 ## 👩‍💻 Author
 
